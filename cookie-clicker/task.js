@@ -1,4 +1,5 @@
 const image = document.getElementById('cookie');
+let previos = 0;
 function changeWidth(){
     const counter = document.getElementById('clicker__counter');
     const count = Number(counter.innerHTML);
@@ -10,9 +11,8 @@ function changeWidth(){
     counter.textContent ++;
     const speed = document.getElementById('speed');
     const current = new Date().getTime();
-    const previos = document.getElementById('time').innerHTML;
     speed.textContent = (1/(current - previos)*1000).toFixed(2);
-    document.getElementById('time').textContent = current;
+    previos = current;
 }
 
 
