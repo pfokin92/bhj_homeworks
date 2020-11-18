@@ -16,11 +16,13 @@ function getModalGood() {
 
 forClick.onclick = getModalGood;
 
+const closeBab = dialog.querySelector('.modal__close');
 const closeWindow = dialogSuccess.querySelector('.modal__close');
 
 function closeWindowModal(){
-    const parent = closeWindow.closest('.modal_active');
-    dialogSuccess.classList.remove('modal_active');
+    const parent = this.closest('.modal_active');
+    parent.classList.remove('modal_active');
 }
 
 closeWindow.onclick = closeWindowModal;
+closeBab.onclick = closeWindowModal;
