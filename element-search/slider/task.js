@@ -21,23 +21,13 @@ function activateElements() {
 
 function showNextImg() {
     deactivateElements();
-    if(activeImage < sliderMass.length-1){
-        activeImage ++;
-    } else {
-        activeImage = 0;
-    }
-    activateElements(activeImage);
+    activateElements((activeImage < sliderMass.length-1) ? activeImage ++ : activeImage = 0);
 }
 
 
 function showPrevImg() {
     deactivateElements();
-    if(activeImage>0){
-        activeImage --;
-    } else {
-        activeImage = dotsMass.length;
-    }
-    activateElements();
+    activateElements((activeImage>0)? activeImage--: activeImage=dotsMass.length-1);
 }
 
 prev.onclick = showPrevImg;
