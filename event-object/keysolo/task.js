@@ -4,6 +4,7 @@ class Game {
     this.wordElement = container.querySelector('.word');
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
+    this.countDown;
 
     this.reset();
 
@@ -42,27 +43,27 @@ class Game {
     if (this.currentSymbol !== null) {
       return;
     }
-
     if (++this.winsElement.textContent === 10) {
       alert('Победа!');
       this.reset();
     }
     this.setNewWord();
+    clearInterval(this.countDown);
   }
 
   fail() {
     if (++this.lossElement.textContent === 5) {
       alert('Вы проиграли!');
-      clearInterval(this.countDown);
       this.reset();
     }
     this.setNewWord();
+    clearInterval(this.countDown);
   }
 
   setNewWord() {
     const word = this.getWord();
-    const countDown = setInterval(this.countTime, 1000);
     this.renderWord(word);
+    this.countDown = setInterval(()=>{this.countTime();}, 1000);
   }
 
   getWord() {
@@ -80,7 +81,7 @@ class Game {
         'javascript'
       ],
       index = Math.floor(Math.random() * words.length);
-      const timer = document.getElementById('timer').textContent =  words[index].length;
+      document.getElementById('timer').textContent =  words[index].length;
 
     return words[index];
   }
@@ -101,7 +102,7 @@ class Game {
     timer.textContent --;
     const time = Number(timer.innerHTML);
     if (time === 0) {
-        alert('Вы проиграли!');
+        this.fail();
     }
   }
 }
