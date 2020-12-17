@@ -27,6 +27,7 @@ function addTasks(event){
         this.closest('.task').remove();
     }
     taskInput.value = '';
+    event.preventDefault();
 }
 
 addTaskButton.addEventListener('click', addTasks);

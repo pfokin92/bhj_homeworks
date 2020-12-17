@@ -13,7 +13,7 @@ function add(){
 function subtract(){
     let indexActive = controlDecArr.indexOf(this);
     let count = Number(quantityValueArr[indexActive].innerHTML)
-    if (count>0){
+    if (count>1){
         count--;
         quantityValueArr[indexActive].textContent = count;
     }
