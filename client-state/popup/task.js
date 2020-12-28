@@ -2,7 +2,7 @@ let modalSubscribe = document.getElementById('subscribe-modal');
 let modalClose = modalSubscribe.querySelector('.modal__close');
 
 window.onload = () => {
-    if (document.cookie === '') {
+    if (!document.cookie.includes('modalClosed')) {
         modalSubscribe.classList.add('modal_active');
     }
 }

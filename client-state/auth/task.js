@@ -6,7 +6,7 @@ let userId = document.getElementById('user_id');
 
 window.onload = () => {
 
-    if (localStorage.userId === undefined) {
+    if (localStorage.userId) {
         signIn.classList.add('signin_active');
     } else {
         userId.textContent = localStorage.userId;
